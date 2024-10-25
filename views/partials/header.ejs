@@ -1,0 +1,44 @@
+<link href="/output.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="bg-white sticky top-0 shadow-lg h-[60px] flex items-center justify-between px-4 md:px-20">
+    <h1 class="font-bold text-xl"><b>Cs/updets </b></h1>
+    <div class="flex items-center md:hidden">
+        <button id="menu-toggle" class="p-2 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+    <ul id="menu" class="hidden md:flex gap-20 uppercase font-semibold">
+        <li class="hover:text-blue-600 hover:cursor-pointer py-2"><a href="/">Home</a></li>
+        <li class="hover:text-blue-600 hover:cursor-pointer capitalize"><a href="/course">Course</a></li>
+        <li class="hover:text-blue-600 hover:cursor-pointer"><a href="/login">Login</a></li>
+        <li class="hover:text-blue-600 hover:cursor-pointer"><a href="/signup">Create Account</a></li>
+    </ul>
+</div>
+
+<div id="mobile-menu"
+    class="hidden md:hidden flex-col items-start w-full bg-white shadow-lg absolute z-10 top-[60px] left-0">
+    <ul class="flex flex-col w-full uppercase font-semibold px-4">
+        <li class="hover:text-blue-600 hover:cursor-pointer py-2"><a href="/">Home</a></li>
+        <li class="hover:text-blue-600 hover:cursor-pointer py-2"><a href="/course">Course</a></li>
+        <li class="hover:text-blue-600 hover:cursor-pointer py-2">
+            <form action="/api/v1/logout" method="POST" style="display: inline;">
+                <button type="submit" class="hover:text-blue-600 hover:cursor-pointer">Logout</button>
+            </form>
+        </li>
+        <li class="hover:text-blue-600 hover:cursor-pointer py-2"><a href="/login">Login</a></li>
+        <li class="hover:text-blue-600 hover:cursor-pointer py-2"><a href="/signup">Create Account</a></li>
+    </ul>
+</div>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
